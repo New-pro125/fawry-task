@@ -22,6 +22,10 @@ class Cart {
                 if(expirableProduct.isExpired()){
                     throw new IllegalArgumentException("Product is expired");
                 }
+            }if(product instanceof ShippableExpirableProduct shippableExpirableProduct){
+                if(shippableExpirableProduct.isExpired()){
+                    throw new IllegalArgumentException("Product is expired");
+                }
             }
             if(this.cartProducts.containsKey(product)){
                 this.cartProducts.put(product,this.cartProducts.get(product)+quantity);
